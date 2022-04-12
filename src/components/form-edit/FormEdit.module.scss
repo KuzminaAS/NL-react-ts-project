@@ -1,0 +1,53 @@
+@import "../../shared/styles/base";
+
+.Form {
+	width: 384px;
+	padding: 24px 0 32px 24px;
+	margin: 0 auto;
+	background-color: $primary-bg-color;
+}
+.Form__text {
+	@include flex(center, center);
+	margin: 0;
+	font-family: "LetoSans-Regular", sans-serif;
+	@include font(24px, 400, 28px);
+	color: #202020;
+}
+.Form__input_wrapper {
+	padding-top: 16px;
+	@include flex(center, center);
+	flex-direction: column;
+}
+.Form__btn_wrapper {
+	@include flex(center, center);
+}
+.Form__field {
+	width: 336px;
+	border: 2px solid #ede8f7;
+	border-radius: 10px;
+	padding: 22px 0 22px 16px;
+}
+.Form__field::placeholder {
+	font-family: "LetoSans-Regular", sans-serif;
+	@include font(14px, 300, 16px);
+	color: #9b99aa;
+
+	transition: 0.5s;
+}
+.Form__field:focus::placeholder {
+	font-size: 12px;
+	transform: translateY(-16px);
+}
+
+.Form__field:hover,
+.Form__field:focus {
+	border: 2px solid #c0bad5;
+	outline: #c0bad5;
+}
+.Form__field:not(:last-child) {
+	margin-bottom: 16px;
+}
+.Form__btn_wrapper {
+	padding-top: 24px;
+	@include flex;
+}

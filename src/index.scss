@@ -1,0 +1,10 @@
+@import "./shared/styles/reset";
+@import "./shared/styles/base";
+@import "./shared/styles/fonts";
+
+body {
+	font-family: "LetoSans-Regular", sans-serif;
+	@include font(14px, 300, 16px);
+	color: $primary-text-color;
+	background-color: $primary-bg-color;
+}

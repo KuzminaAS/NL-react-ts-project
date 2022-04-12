@@ -1,0 +1,23 @@
+@import "../../shared/styles/base";
+
+.Controls__btn {
+	font-family: "LetoSans-Bold", sans-serif;
+	@include font(16px, 0, 19px);
+	background-color: $btn-bg-green;
+	color: $btn-text-color;
+	text-align: center;
+	outline: none;
+	border: none;
+	padding-top: 15px;
+	padding-bottom: 16px;
+	border-radius: 44px;
+	width: 232px;
+	height: 48px;
+	cursor: pointer;
+	outline: none;
+	transition: background-color 250ms linear;
+
+	&:hover {
+		background-color: $accent-color;
+	}
+}

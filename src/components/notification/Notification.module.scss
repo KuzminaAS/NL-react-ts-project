@@ -1,0 +1,10 @@
+@import "../../shared/styles/base";
+
+.Notification__text {
+	font-family: "LetoSans-Regular", sans-serif;
+	@include font(16px, 400, 19px);
+
+	padding-top: 15px;
+	padding-left: 72px;
+	margin: 0;
+}

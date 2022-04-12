@@ -1,0 +1,25 @@
+@import "../../shared/styles/base";
+.container {
+	@include desktop {
+		max-width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.Layout {
+	width: 100%;
+	min-height: 100vh;
+	background: $primary-bg-color;
+	margin: 0 auto;
+	box-sizing: border-box;
+	box-shadow: 0 0 15px 5px #0000003b;
+}
+
+.Layout__head h1 {
+	font-family: "LetoSans-Regular", sans-serif;
+	@include font(16px, 400, 19px);
+	margin: 0;
+	padding-top: 88px;
+	padding-left: 72px;
+}

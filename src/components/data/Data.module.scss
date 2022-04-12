@@ -1,0 +1,15 @@
+@import "../../shared/styles/base";
+
+.Data {
+	padding: 24px 0 32px 72px;
+}
+.Data_bold {
+	font-family: "LetoSans-Bold", sans-serif;
+	@include font(16px, 700, 24px);
+}
+.Data_format {
+	font-family: "LetoSans-Regular", sans-serif;
+	@include font(16px, 400, 19px);
+
+	margin-left: 7px;
+}

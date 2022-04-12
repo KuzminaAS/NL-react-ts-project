@@ -1,0 +1,57 @@
+@import "../../shared/styles/base";
+.error {
+	width: 350px;
+	margin-top: 5px;
+	@include font(12px, 300, 16px);
+	color: #ff0000;
+	display: none;
+}
+.Wrap {
+	position: relative;
+	margin-bottom: 16px;
+}
+input:invalid[data-focused="true"] {
+	border: 2px solid #f8478d;
+}
+input:invalid[data-focused="true"] ~ .error {
+	display: block;
+}
+input:valid[data-focused="true"] {
+	border: 2px solid #13c98a;
+}
+
+.icon_warning {
+	position: absolute;
+	content: "";
+	display: none;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	right: 15px;
+	top: 18px;
+	background: #f8478d;
+	border-radius: 20px;
+	z-index: 1;
+}
+
+input:invalid[data-focused="true"] ~ .icon_warning {
+	display: block;
+}
+
+.icon_ok {
+	position: absolute;
+	content: "";
+	display: none;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	right: 15px;
+	top: 18px;
+	background: #13c98a;
+	border-radius: 20px;
+	z-index: 1;
+}
+input:valid[data-focused="true"] ~ .icon_ok {
+	border: 2px solid #13c98a;
+	display: block;
+}

@@ -1,6 +1,6 @@
 {
   "name": "nl-react-typescript-project",
-  "homepage": "https://",
+  "homepage": "https://KuzminaAS.github.io/NL-react-ts-project.git",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,7 +17,9 @@
   },
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack --env production"
+    "build": "webpack --env production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.2.1",

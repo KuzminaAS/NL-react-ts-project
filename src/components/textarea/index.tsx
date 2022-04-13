@@ -9,7 +9,7 @@ interface Props {
     rows: number,
     onChange:(e:React.ChangeEvent<HTMLTextAreaElement>) => void
 }
-const Textarea: React.FC<Props> = props => {
+const Textarea: React.FC<Props> = (props) => {
 
   // Обработчик изменений в поле
   const onChange = useCallback(e => {

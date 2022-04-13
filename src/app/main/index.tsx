@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Main() {
-  const {profile} = useAppSelector(state => state.user);
+  const {profile, formSubmitted} = useAppSelector(state => state.user);
 
   const navigate = useNavigate();
 
@@ -22,15 +22,13 @@ function Main() {
   }
 
   const editForm = (): void => {
-    onRedirectPage('/form/edit');
+    onRedirectPage('/edit');
   }
  
   return (
     <Layout head={<h1>Form data:</h1>}>
-      {/* <Notification text={'Форма пока не заполнена.'}/> */}
-      <Data data={profile}/>
-      <Controls onClick={completeForm} text={'Заполнить форму'} style={{ marginTop: "37px", marginLeft: "72px" }} />
-       <Controls onClick={editForm} text={'Изменить'} style={{ marginTop: "37px", marginLeft: "72px"}}/>
+      {profile.name ? <Data data={profile}/> : <Notification text={'Форма пока не заполнена.'}/>}
+      {formSubmitted ? <Controls onClick={editForm} text={'Изменить'} style={{ marginTop: "37px", marginLeft: "72px" }} /> : <Controls onClick={completeForm} text={'Заполнить форму'} style={{ marginTop: "37px", marginLeft: "72px" }} />}
     </Layout>
   );
 }

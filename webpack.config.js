@@ -3,7 +3,6 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // Режим сборки development или production
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-const isDevelopment = process.env.NODE_ENV === 'development';
 
 let config = {
        // Директория с исходным кодом приложения
@@ -17,6 +16,11 @@ let config = {
             exclude: /node_modules/
         },
         // {
+        //   test: /.(ts|tsx)$/,
+        //   exclude: /node_modules/,
+        //   loader: 'babel-loader'
+        // },
+        // {
         //   test: /\.svg$/,
         //   type: 'asset',
         // },
@@ -27,7 +31,7 @@ let config = {
         {
           test: /\.module\.s(a|c)ss$/,
           use: [
-          { loader: isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader, options: {} },
+          { loader: process.env.NODE_ENV === 'development' ? "style-loader" : MiniCssExtractPlugin.loader, options: {} },
           { loader: 'css-loader', options: { url: true, import: true, sourceMap: true,} },
           {loader: 'sass-loader',
             options: {
@@ -51,15 +55,10 @@ let config = {
         clean: true,
     },
   plugins: [
-    new MiniCssExtractPlugin({
-     filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-     chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
-    }),
+    new MiniCssExtractPlugin(),
     // Создание dist/index.html с подключенной сборкой
     new HtmlWebPackPlugin({
       template: './index.html',
-      filename: './index.html',
-      base: '/',
     })
     ],
     stats: {
@@ -79,12 +78,13 @@ let config = {
     publicPath: false,
   },
 }
-if (isDevelopment) {
+if (process.env.NODE_ENV === 'development') {
   config.devtool = 'inline-source-map';
   config.devServer = {
     static: path.join(__dirname, 'dist'),
-    port: 8010,
-    historyApiFallback: true
+    port: 8080,
+    historyApiFallback: true,
+    open: true,
   };
 }
 module.exports = config;

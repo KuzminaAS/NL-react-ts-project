@@ -1,7 +1,7 @@
 import React, {lazy, Suspense} from 'react';
 import { Routes, Route } from "react-router-dom";
 import Main from './main';
-import Edit from './edit';
+const Edit = lazy(() => import('./edit'));
 const Form = lazy(() => import('./form'));
 
 function App() {
@@ -13,8 +13,11 @@ function App() {
           <Form />
         </Suspense>
         } />
-          <Route path={'form/edit'} element={<Edit />} />
-      </Routes>
+      <Route path={'/edit'} element={
+        <Suspense fallback={<h2>Loading...</h2>}>
+          <Edit />
+      </Suspense>} />
+    </Routes>
     )
 }
 export default React.memo(App);
